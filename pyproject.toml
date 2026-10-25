@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "open-nyaya"
+version = "0.1.0"
+description = "Open-Source Legal AI & Statutory Computing Toolkit for Modern Indian Law"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+    { name = "Shubham" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Other/Nonlisted Topic",
+]
+dependencies = [
+    "pydantic>=2.0.0",
+    "click>=8.0.0",
+    "rich>=13.0.0",
+    "fastapi>=0.100.0",
+    "uvicorn>=0.22.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+]
+
+[project.scripts]
+open-nyaya = "nyaya.cli:cli"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["nyaya*"]
+
+[tool.setuptools.package-data]
+nyaya = ["data/*.json"]
